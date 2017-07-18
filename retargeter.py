@@ -375,6 +375,7 @@ def main():
                     lOptions = FBVideoGrabber().GetOptions()
                     timeSpan = FBSystem().CurrentTake.LocalTimeSpan
                     start = FBTime()
+                    #Escape the first fram
                     start.SetTime( 0,0,0, 1 )
                     timeSpan.Set(start, timeSpan.GetStop())
                     lOptions.TimeSpan =  timeSpan

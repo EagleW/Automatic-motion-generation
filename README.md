@@ -7,14 +7,17 @@ Run
 ==========
 ## Entry and Settings
 ### Prerequisite:
-Software: amc2bvh, motionbuilder<br />
+Software: amc2bvh.exe, motionbuilder 2017<br />
 Library: pyfbsdk (included in motionbuilder)<br />
+Files: <br />
+  Motion files: amc, asf or bvh formats. <br />
+  Character models: fbx format. <br />
 Character models you plan to apply retargeting scripts. Suggest using Autodesk character generator to generate character because the export fbx file will be characterized already when downloaded from website. You can delete the light in the character model if you don't like it.<br />
 <br />
+Setting rendering options in motionbuilder before run the scripts.
 ### Skeleton mapping:
 You can change the mobuMap(line25) in the retargeter.py to corresponding skeleton mapping if you don't use amc2bvh and try to directly convert bvh file.<br />
 <br />
-
 ### Functionality:
 Amc2bvh can batch convert asf and amc files into bvh files<br />
 Retargeter.py can retarget bvh files into existing character model to render video<br />
@@ -31,3 +34,14 @@ Run AMC2BVH file<br />
 Open motionbuilder<br />
 Run the retargeter.py<br />
 Choose the folder which characters prototype exists and then choose the source of bvh file <br />
+<br />
+
+Sample Scripts
+==========
+Run AMC2BVH file in sample amc asf folder, choose list_asf.txt, list_amc.txt, list_bvh.txt as default setting.<br />
+Open motionbuilder, run the retargeter.py, choose SampleCharacter folder for the first popoup folder then choose sample amc asf folder for the second popup folder.
+Wait until the script finished.
+
+Caution:
+==========
+For motion multiple motion file with large frames could cause motionbuilder UI stuck before it finishing its rendering process.
