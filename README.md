@@ -19,7 +19,7 @@ You can change the mobuMap(line25) in the retargeter.py to corresponding skeleto
 Amc2bvh can batch convert asf and amc files into bvh files<br />
 Retargeter.py can retarget bvh files into existing character model to render video<br />
 <br />
-#Light and Camera Setting
+# Light and Camera Setting:
 You can change camera(line 135) and light(line 140) to change positions of cameras and lights. Also, you can change light type in (line 350)<br />
 <br />
 ### Conversion from asf and amc to bvh:
