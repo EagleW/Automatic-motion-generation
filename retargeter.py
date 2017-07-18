@@ -345,16 +345,18 @@ def main():
             # plot
             charToSave = plotAnim(newChar, oldAnimChar)
             for i in range(0, 2):
-                #
+                #set light
                 mylight = FBLight("mylight")
                 mylight.LightType = FBLightType.kFBLightTypePoint
                 mylight.SetVector( FBVector3d(light["pos"][0][0],light["pos"][0][1],light["pos"][0][2]))
                 mylight.SetVector( FBVector3d(light["rotate"][0][0],light["rotate"][0][1],camera["rotate"][0][2]), FBModelTransformationType.kModelRotation)
                 mylight.Show = True
+                #set camera
                 x = "Camera1"
                 myCamera = FBCamera(x)
                 myCamera.SetVector( FBVector3d( camera["pos"][i][0], camera["pos"][i][1], camera["pos"][i][2] ) )
                 myCamera.SetVector( FBVector3d( camera["rotate"][i][0], camera["rotate"][i][1], camera["rotate"][i][2] ), FBModelTransformationType.kModelRotation)
+                #apply camera to redered view
                 FBSystem().Renderer.Render()
                 FBSystem().Scene.Renderer.SetCameraInPane( myCamera, 0 )
                 # hide Axis and grid from renders
