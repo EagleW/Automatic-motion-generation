@@ -132,6 +132,8 @@ mobuMap = {'Reference' : 'BVH:reference',
              'RightArmRoll' : 'BVH:RightArmRoll',
              'RightForeArmRoll' : 'BVH:RightForeArmRoll' }
 #this dictionary stored the potential camera position
+#three coordinators under pos reprsent x, y, z for position.
+#three coordinators under rotate represent rotation degree.
 camera = {
 "pos":[[ 50, 50, 1000],[1000, 50, 50]],
 "rotate":[ [0, 90, 0],[170,0,170]]

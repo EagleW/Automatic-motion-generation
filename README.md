@@ -39,8 +39,9 @@ Choose the folder which characters prototype exists and then choose the source o
 Sample Scripts
 ==========
 Run AMC2BVH file in sample amc asf folder, choose list_asf.txt, list_amc.txt, list_bvh.txt as default setting.<br />
-Open motionbuilder, run the retargeter.py, choose SampleCharacter folder for the first popoup folder then choose sample amc asf folder for the second popup folder.
-Wait until the script finished.
+Open motionbuilder, run the retargeter.py, choose SampleCharacter folder for the first popoup folder then choose sample amc asf folder for the second popup folder.<br />
+Wait until the script finished.<br />
+Sample video exists under sample video folder.<br />
 
 Caution:
 ==========
