@@ -21,6 +21,126 @@ import time
 from random import randint
 bipedPrefixNamingScheme = True
 
+
+# This is the motionvuilder map mapping all bipeds Name to Mobu Names.
+bipedMap = {'Reference' : 'BVH:reference',
+            'Hips':'BVH:hip',
+             'LeftUpLeg' : 'BVH:lfemur',
+             'LeftLeg' : 'BVH:ltibia',
+             'LeftFoot' : 'BVH:lfoot',
+             'RightUpLeg' : 'BVH:rfemur',
+             'RightLeg' : 'BVH:rtibia',
+             'RightFoot' : 'BVH:rfoot',
+             'Spine' : 'BVH:lowerback',
+             'LeftArm' : 'BVH:lhumerus',
+             'LeftForeArm' : 'BVH:lradius',
+             'LeftHand' : 'BVH:lwrist',
+             'RightArm' : 'BVH:rhumerus',
+             'RightForeArm' : 'BVH:rradius',
+             'RightHand' : 'BVH:rwrist',
+             'Head' : 'BVH:head',
+             'LeftToeBase' : 'ltoes',
+             'RightToeBase' : 'rtoes',
+             'LeftShoulder' : 'BVH:Left Collar',
+             'RightShoulder' : 'BVH:Right Collar',
+             'Neck' : 'BVH:lowerneck',
+             'Spine1' : 'BVH:Chest',
+             'Spine2' : 'BVH:Spine2',
+             'Spine3' : 'BVH:Spine3',
+             'Spine4' : 'BVH:Spine4',
+             'Spine5' : 'BVH:Spine5',
+             'Spine6' : 'BVH:Spine6',
+             'Spine7' : 'BVH:Spine7',
+             'Spine8' : 'BVH:Spine8',
+             'Spine9' : 'BVH:Spine9',
+             'Neck1' : 'BVH:upperback',
+             'Neck2' : 'BVH:Neck2',
+             'Neck3' : 'BVH:Neck3',
+             'Neck4' : 'BVH:Neck4',
+             'Neck5' : 'BVH:Neck5',
+             'Neck6' : 'BVH:Neck6',
+             'Neck7' : 'BVH:Neck7',
+             'Neck8' : 'BVH:Neck8',
+             'Neck9' : 'BVH:Neck9',
+             'LeftFingerBase' : 'BVH:lhand',
+             'LeftHandThumb1' : 'BVH:lthumb',
+             'LeftHandThumb2' : 'BVH:lthumb_End',
+             'LeftHandThumb3' : 'BVH:lThumb3',
+             'LeftHandIndex1' : 'BVH:lIndex0',
+             'LeftHandIndex2' : 'BVH:lIndex1',
+             'LeftHandIndex3' : 'BVH:lIndex2',
+             'LeftHandIndex4' : 'BVH:lIndex3',
+             'LeftHandMiddle1' : 'BVH:lMid0',
+             'LeftHandMiddle2' : 'BVH:lMid1',
+             'LeftHandMiddle3' : 'BVH:lMid2',
+             'LeftHandMiddle4' : 'BVH:lMid3',
+             'LeftHandRing1' : 'BVH:lRing0',
+             'LeftHandRing2' : 'BVH:lRing1',
+             'LeftHandRing3' : 'BVH:lRing2',
+             'LeftHandRing4' : 'BVH:lRing3',
+             'LeftHandPinky1' : 'BVH:lPinky0',
+             'LeftHandPinky2' : 'BVH:lPinky1',
+             'LeftHandPinky3' : 'BVH:lPinky2',
+             'LeftHandPinky4' : 'BVH:lPinky3',
+             'RightFingerBase' : 'BVH:rhand',
+             'RightHandThumb1' : 'BVH:rthumb_End',
+             'RightHandThumb2' : 'BVH:rThumb2',
+             'RightHandThumb3' : 'BVH:rThumb3',
+             'RightHandIndex1' : 'BVH:rIndex0',
+             'RightHandIndex2' : 'BVH:rIndex1',
+             'RightHandIndex3' : 'BVH:rIndex2',
+             'RightHandIndex4' : 'BVH:rIndex3',
+             'RightHandMiddle1' : 'BVH:rMid0',
+             'RightHandMiddle2' : 'BVH:rMid1',
+             'RightHandMiddle3' : 'BVH:rMid2',
+             'RightHandMiddle4' : 'BVH:rMid3',
+             'RightHandRing1' : 'BVH:rRing0',
+             'RightHandRing2' : 'BVH:rRing1',
+             'RightHandRing3' : 'BVH:rRing2',
+             'RightHandRing4' : 'BVH:rRing3',
+             'RightHandPinky1' : 'BVH:rPinky0',
+             'RightHandPinky2' : 'BVH:rPinky1',
+             'RightHandPinky3' : 'BVH:rPinky2',
+             'RightHandPinky4' : 'BVH:rPinky3',
+             'LeftFootThumb1' : 'BVH:lBigToe1',
+             'LeftFootThumb2' : 'BVH:lBigToe2',
+             'LeftFootThumb3' : 'BVH:LeftFootThumb3',
+             'LeftFootIndex1' : 'BVH:lIndexToe1',
+             'LeftFootIndex2' : 'BVH:lIndexToe2',
+             'LeftFootIndex3' : 'BVH:LeftFootIndex3',
+             'LeftFootMiddle1' : 'BVH:lMidToe1',
+             'LeftFootMiddle2' : 'BVH:lMidToe2',
+             'LeftFootMiddle3' : 'BVH:LeftFootMiddle3',
+             'LeftFootRing1' : 'BVH:lRingToe1',
+             'LeftFootRing2' : 'BVH:lRingToe2',
+             'LeftFootRing3' : 'BVH:LeftFootRing3',
+             'LeftFootPinky1' : 'BVH:lPinkyToe1',
+             'LeftFootPinky2' : 'BVH:lPinkyToe2',
+             'LeftFootPinky3' : 'BVH:LeftFootPinky3',
+             'RightFootThumb1' : 'BVH:rBigToe1',
+             'RightFootThumb2' : 'BVH:rBigToe2',
+             'RightFootThumb3' : 'BVH:RightFootThumb3',
+             'RightFootIndex1' : 'BVH:rIndexToe1',
+             'RightFootIndex2' : 'BVH:rIndexToe2',
+             'RightFootIndex3' : 'BVH:RightFootIndex3',
+             'RightFootMiddle1' : 'BVH:rMidToe1',
+             'RightFootMiddle2' : 'BVH:rMidToe2',
+             'RightFootMiddle3' : 'BVH:RightFootMiddle3',
+             'RightFootRing1' : 'BVH:rRingToe1',
+             'RightFootRing2' : 'BVH:rRingToe2',
+             'RightFootRing3' : 'BVH:RightFootRing3',
+             'RightFootPinky1' : 'BVH:rPinkyToe1',
+             'RightFootPinky2' : 'BVH:rPinkyToe2',
+             'RightFootPinky3' : 'BVH:RightFootPinky3',
+             'LeftUpLegRoll' : 'BVH:LeftUpLegRoll',
+             'LeftLegRoll' : 'BVH:LeftLegRoll',
+             'RightUpLegRoll' : 'BVH:RightUpLegRoll',
+             'RightLegRoll' : 'BVH:RightLegRoll',
+             'LeftArmRoll' : 'BVH:LeftArmRoll',
+             'LeftForeArmRoll' : 'BVH:LeftForeArmRoll',
+             'RightArmRoll' : 'BVH:RightArmRoll',
+             'RightForeArmRoll' : 'BVH:RightForeArmRoll' }
+
 # This is the Motionbuilder mapping to use the same function.
 mobuMap = {'Reference' : 'BVH:reference',
             'Hips':'BVH:Hips',
@@ -285,11 +405,37 @@ def main():
         FBMessageBox( "Animations selection canceled", "Cannot continue without animations.", "OK", None, None )
         return False
 
+    backgroundList = []
+    # asking for the character, already characterized
+    newBackPopup = FBFolderPopup();
+    newBackPopup.Caption = "Select a Background folder"
+    newBackPopup.Filter = "*.jpg"
+    newBackPopup.Path = "C:\\Users\\ISL-WORKSTATION\\Desktop\\motionbuilder\\automatic"
+    if newBackPopup.Execute():
+        # Getting the names of the files in your previously selected folder
+        # Using os to get the file names from the specified folder (above) and storing names of files in a list
+        allList_back = os.listdir(newBackPopup.Path)
+        # Setting the regular expression to only look for .jpg extenstion
+        jpgRE = re.compile('^\w+.jpg$', re.I)
+        # Removing any files that do not have an .fbx extenstion
+        for fname in allList_back:
+            bk = jpgRE.search(fname)
+            if bk:
+                backgroundList.append(fname)
+    else:
+        FBMessageBox( "Selection canceled", "Background selection canceled.", "OK", None, None )
+        return False
+
+
+
+
     userRoot = ["Hips/Pelvis", "Hips"]
-    boneMap = bipedMap
+    boneMap = mobuMap
     bipedPrefixNamingScheme = False
     prefix = ["",""]
+    print(1)
     for filename_char in fileList_char:
+        print(2)
 
         app = FBApplication()
         scene = FBSystem().Scene
@@ -300,6 +446,7 @@ def main():
 
         # iterate through animation list
         for animName in fileList:
+            print(3)
 
             app.FileNew()
             scene.Evaluate()
@@ -343,57 +490,69 @@ def main():
                 # merged FBX with an character present in the scene
                 oldAnimChar = scene.Characters[1]
 
+            for bckg_name in backgroundList:
+                bckg_filename = newBackPopup.Path  + "\\" + bckg_name
+                lTexture = FBTexture(bckg_filename)
 
-            # plot
-            charToSave = plotAnim(newChar, oldAnimChar)
-            for i in range(0, 2):
-                #set light
-                mylight = FBLight("mylight")
-                mylight.LightType = FBLightType.kFBLightTypePoint
-                mylight.SetVector( FBVector3d(light["pos"][0][0],light["pos"][0][1],light["pos"][0][2]))
-                mylight.SetVector( FBVector3d(light["rotate"][0][0],light["rotate"][0][1],camera["rotate"][0][2]), FBModelTransformationType.kModelRotation)
-                mylight.Show = True
-                #set camera
-                x = "Camera1"
-                myCamera = FBCamera(x)
-                myCamera.SetVector( FBVector3d( camera["pos"][i][0], camera["pos"][i][1], camera["pos"][i][2] ) )
-                myCamera.SetVector( FBVector3d( camera["rotate"][i][0], camera["rotate"][i][1], camera["rotate"][i][2] ), FBModelTransformationType.kModelRotation)
-                #apply camera to redered view
-                FBSystem().Renderer.Render()
-                FBSystem().Scene.Renderer.SetCameraInPane( myCamera, 0 )
-                # hide Axis and grid from renders
-                for lCamera in FBSystem().Scene.Cameras:
-                    lCamera.ViewShowAxis = False
-                    lCamera.ViewShowGrid = False
-                FBPlayerControl().Goto(FBTime(0, 0, 0, 0))
-                try:
-                    mgr = FBVideoCodecManager()
-                    # By specifying Codec stored, the first time we render a scene, the codec dialog
-                    # will ve available if user press con configure
-                    # the second time a scene is rendered, the same settings will be used.
-                    mgr.VideoCodecMode = FBVideoCodecMode.FBVideoCodecUncompressed
-                    filename_char_origin = (filename_char + "%d") % i
-                    lDstFileName = os.path.join(newCharPopup.Path, filename_char_origin.replace( '.fbx', '_' ) + animName.replace( 'bvh', 'avi' ))
-                    lOptions = FBVideoGrabber().GetOptions()
-                    timeSpan = FBSystem().CurrentTake.LocalTimeSpan
-                    start = FBTime()
-                    #Escape the first fram
-                    start.SetTime( 0,0,0, 1 )
-                    timeSpan.Set(start, timeSpan.GetStop())
-                    lOptions.TimeSpan =  timeSpan
-                    # render first time: user can specify rendering params
-                    lOptions.OutputFileName = lDstFileName
-                    app.FileRender( lOptions )
+                # plot
+                charToSave = plotAnim(newChar, oldAnimChar)
+                for i in range(0, 2):
+                    #set light
+                    mylight = FBLight("mylight")
+                    mylight.LightType = FBLightType.kFBLightTypePoint
+                    mylight.SetVector( FBVector3d(light["pos"][0][0],light["pos"][0][1],light["pos"][0][2]))
+                    mylight.SetVector( FBVector3d(light["rotate"][0][0],light["rotate"][0][1],camera["rotate"][0][2]), FBModelTransformationType.kModelRotation)
+                    mylight.Show = True
+                    #set camera
+                    x = "Camera1"
+                    myCamera = FBCamera(x)
+                    myCamera.SetVector( FBVector3d( camera["pos"][i][0], camera["pos"][i][1], camera["pos"][i][2] ) )
+                    myCamera.SetVector( FBVector3d( camera["rotate"][i][0], camera["rotate"][i][1], camera["rotate"][i][2] ), FBModelTransformationType.kModelRotation)
+
+                    #change backgrounf image settings
+                    myCamera.BackGroundImageCenter = True
+                    myCamera.BackGroundImageCrop = True
+                    myCamera.BackGroundImageFit = True
+                    myCamera.BackGroundImageKeepRatio = True
+                    myCamera.BackGroundTexture = lTexture
+
+                    #apply camera to redered view
+                    FBSystem().Renderer.Render()
+                    FBSystem().Scene.Renderer.SetCameraInPane( myCamera, 0 )
+                    # hide Axis and grid from renders
+                    for lCamera in FBSystem().Scene.Cameras:
+                        lCamera.ViewShowAxis = False
+                        lCamera.ViewShowGrid = False
+                    FBPlayerControl().Goto(FBTime(0, 0, 0, 0))
+                    try:
+                        mgr = FBVideoCodecManager()
+                        # By specifying Codec stored, the first time we render a scene, the codec dialog
+                        # will ve available if user press con configure
+                        # the second time a scene is rendered, the same settings will be used.
+                        mgr.VideoCodecMode = FBVideoCodecMode.FBVideoCodecUncompressed
+                        filename_char_origin = (filename_char + "%d") % i
+                        lDstFileName = os.path.join(newCharPopup.Path, filename_char_origin.replace( '.fbx', '_' ) + animName.replace( 'bvh', 'avi' ))
+                        lOptions = FBVideoGrabber().GetOptions()
+                        timeSpan = FBSystem().CurrentTake.LocalTimeSpan
+                        start = FBTime()
+                        #Escape the first fram
+                        start.SetTime( 0,0,0, 1 )
+                        timeSpan.Set(start, timeSpan.GetStop())
+                        lOptions.TimeSpan =  timeSpan
+                        # render first time: user can specify rendering params
+                        lOptions.OutputFileName = lDstFileName
+                        app.FileRender( lOptions )
 
 
-                except Exception, e:
-                    # Unkown error encountered... Maybe from the 'listdir' call failing...
-                    FBMessageBox( "ERROR", "Unknown error encountered. Aborting! " + str(e), "OK", None, None )
-                del( myCamera,mylight)
-                # unhide axis and grid from scene
-                for lCamera in FBSystem().Scene.Cameras:
-                    lCamera.ViewShowAxis = True
-                    lCamera.ViewShowGrid = True
+                    except Exception, e:
+                        # Unkown error encountered... Maybe from the 'listdir' call failing...
+                        FBMessageBox( "ERROR", "Unknown error encountered. Aborting! " + str(e), "OK", None, None )
+                    del( myCamera,mylight)
+                    # unhide axis and grid from scene
+                    for lCamera in FBSystem().Scene.Cameras:
+                        lCamera.ViewShowAxis = True
+                        lCamera.ViewShowGrid = True
+                del(lTexture)
 
 
 
