@@ -255,8 +255,8 @@ mobuMap = {'Reference' : 'BVH:reference',
 #three coordinators under pos reprsent x, y, z for position.
 #three coordinators under rotate represent rotation degree.
 camera = {
-"pos":[[ 50, 50, 1000],[1000, 50, 50]],
-"rotate":[ [0, 90, 0],[170,0,170]]
+"pos":[[ 50, 70, 600],[500, 70, 50],[50, 70, -400],[-500, 70, 50]],
+"rotate":[[0, 90, 0],[180,0,180],[180,-90,180],[0,0,0]]
 }
 
 light = {
@@ -345,7 +345,7 @@ def plotAnim(char, animChar):
 
     char.InputCharacter = animChar
     char.InputType = FBCharacterInputType.kFBCharacterInputCharacter
-    char.ActiveInput = True
+    char.Active = True
     if (not char.PlotAnimation(FBCharacterPlotWhere.kFBCharacterPlotOnSkeleton, plotoBla)):
         FBMessageBox( "Something went wrong", "Plot animation returned false, cannot continue", "OK", None, None )
         return False
@@ -496,13 +496,15 @@ def main():
 
                 # plot
                 charToSave = plotAnim(newChar, oldAnimChar)
-                for i in range(0, 2):
+                for i in range(0, 4):
+                    """
                     #set light
                     mylight = FBLight("mylight")
                     mylight.LightType = FBLightType.kFBLightTypePoint
-                    mylight.SetVector( FBVector3d(light["pos"][0][0],light["pos"][0][1],light["pos"][0][2]))
-                    mylight.SetVector( FBVector3d(light["rotate"][0][0],light["rotate"][0][1],camera["rotate"][0][2]), FBModelTransformationType.kModelRotation)
+                    mylight.Translation = FBVector3d(light["pos"][0][0],light["pos"][0][1],light["pos"][0][2])
+                    mylight.Rotation = FBVector3d(light["rotate"][0][0],light["rotate"][0][1],camera["rotate"][0][2])
                     mylight.Show = True
+                    """
                     #set camera
                     x = "Camera1"
                     myCamera = FBCamera(x)
@@ -538,6 +540,9 @@ def main():
                         #Escape the first fram
                         start.SetTime( 0,0,0, 1 )
                         timeSpan.Set(start, timeSpan.GetStop())
+                        lOptions.AntiAliasing = True
+                        lOptions.BitsPerPixel = FBVideoRenderDepth.FBVideoRender32Bits
+                        lOptions.CameraResolution = FBCameraResolutionMode.kFBResolution640x480
                         lOptions.TimeSpan =  timeSpan
                         # render first time: user can specify rendering params
                         lOptions.OutputFileName = lDstFileName
@@ -547,7 +552,7 @@ def main():
                     except Exception, e:
                         # Unkown error encountered... Maybe from the 'listdir' call failing...
                         FBMessageBox( "ERROR", "Unknown error encountered. Aborting! " + str(e), "OK", None, None )
-                    del( myCamera,mylight)
+                    del( myCamera)
                     # unhide axis and grid from scene
                     for lCamera in FBSystem().Scene.Cameras:
                         lCamera.ViewShowAxis = True
