@@ -316,7 +316,7 @@ def CharacterizeBiped(rootname, useBipedPrefixNamingScheme, nameprefix, boneMap,
         fbp.Percent = int(val)
 
     switchOn = myBiped.SetCharacterizeOn( True )
-    print "Character mapping created for " + (myBiped.LongName)
+    #print "Character mapping created for " + (myBiped.LongName)
 
     # We must call FBDelete when the FBProgress object is no longer needed.
     fbp.FBDelete()
@@ -433,20 +433,18 @@ def main():
     boneMap = bipedMap
     bipedPrefixNamingScheme = False
     prefix = ["",""]
-    print(1)
+    print("total number of video: ")
+    print(len(fileList_char)*len(fileList)*len(backgroundList)*4)
     for filename_char in fileList_char:
-        print(2)
 
         app = FBApplication()
         scene = FBSystem().Scene
         filename = newCharPopup.Path  + "\\" + filename_char
-        print(filename_char)
         # get root name from the skeleton on the animations folder
 
 
         # iterate through animation list
         for animName in fileList:
-            print(3)
 
             app.FileNew()
             scene.Evaluate()
