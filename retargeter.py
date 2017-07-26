@@ -533,7 +533,7 @@ def main():
                         # the second time a scene is rendered, the same settings will be used.
                         mgr.VideoCodecMode = FBVideoCodecMode.FBVideoCodecUncompressed
                         filename_char_origin = (filename_char + "%d") % i
-                        lDstFileName = os.path.join(newCharPopup.Path, filename_char_origin.replace( '.fbx', '_' ) + animName.replace( 'bvh', 'avi' ))
+                        lDstFileName = os.path.join(newCharPopup.Path, filename_char_origin.replace( '.fbx', '_' ) +.replace( '.jpg', '_' )+ animName.replace( 'bvh', 'avi' ))
                         lOptions = FBVideoGrabber().GetOptions()
                         timeSpan = FBSystem().CurrentTake.LocalTimeSpan
                         start = FBTime()
