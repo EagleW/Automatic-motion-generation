@@ -430,7 +430,7 @@ def main():
 
 
     userRoot = ["Hips/Pelvis", "Hips"]
-    boneMap = mobuMap
+    boneMap = bipedMap
     bipedPrefixNamingScheme = False
     prefix = ["",""]
     print(1)
