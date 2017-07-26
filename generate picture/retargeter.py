@@ -255,8 +255,8 @@ mobuMap = {'Reference' : 'BVH:reference',
 #three coordinators under pos reprsent x, y, z for position.
 #three coordinators under rotate represent rotation degree.
 camera = {
-"pos":[[ -174, 213, 147]],
-"rotate":[[-25, 42, -34]]
+"pos":[[ 286.22, 19.32, 177.82],[ -174, 213, 147]],
+"rotate":[[-169.45, 21.84, -153.41],[-25, 42, -34]]
 }
 
 
@@ -402,7 +402,7 @@ def main():
         return False
 
     userRoot = ["Hips/Pelvis", "Hips"]
-    boneMap = mobuMap
+    boneMap = bipedMap
     bipedPrefixNamingScheme = False
     prefix = ["",""]
     print(1)
@@ -485,8 +485,8 @@ def main():
                 # will ve available if user press con configure
                 # the second time a scene is rendered, the same settings will be used.
                 mgr.VideoCodecMode = FBVideoCodecMode.FBVideoCodecUncompressed
-                filename_char_origin = (filename_char + "%d") % i
-                lDstFileName = os.path.join(newCharPopup.Path, filename_char_origin.replace( '.fbx', '_' ) + animName.replace( 'bvh', 'avi' ))
+                filename_char_origin = (filename_char)
+                lDstFileName = os.path.join(newCharPopup.Path, filename_char_origin.replace( '.fbx', '_' ) + animName.replace( 'bvh', 'jpg' ))
                 lOptions = FBVideoGrabber().GetOptions()
                 timeSpan = FBSystem().CurrentTake.LocalTimeSpan
                 start = FBTime()

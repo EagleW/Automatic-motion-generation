@@ -8,10 +8,11 @@ Run
 ## Entry and Settings
 ### Prerequisite:
 Software: amc2bvh.exe, motionbuilder 2017<br />
-Library: pyfbsdk (included in motionbuilder)<br />
+Library: pyfbsdk (included in motionbuilder)Pillow<br />
 Files: <br />
   Motion files: amc, asf or bvh formats. <br />
   Character models: fbx format. <br />
+Run pip install Pillow to install pillow. <br />
 Character models you plan to apply retargeting scripts. Suggest using Autodesk character generator to generate character because the export fbx file will be characterized already when downloaded from website. You can delete the light in the character model if you don't like it.<br />
 <br />
 Setting rendering options in motionbuilder before run the scripts.
@@ -35,13 +36,19 @@ Open motionbuilder<br />
 Run the retargeter.py<br />
 Choose the folder which characters prototype exists and then choose the source of bvh file <br />
 <br />
+### For generating one pictures from the motion capture file
+Open motionbuilder<br />
+Run the retargeter.py under generate picture<br />
+Choose the folder which characters prototype exists and then choose the source of bvh file <br />
+Run generate_picture.py to generate one picture from all frames
 
 Sample Scripts
 ==========
 Run AMC2BVH file in sample amc asf folder, choose list_asf.txt, list_amc.txt, list_bvh.txt as default setting.<br />
-Open motionbuilder, run the retargeter.py, choose SampleCharacter folder for the first popoup folder then choose sample amc asf folder for the second popup folder.<br />
+Open motionbuilder, run the retargeter.py, choose SampleCharacter folder for the first popoup folder then choose sample amc asf folder for the second popup folder and finally choose backgrounds for the third .<br />
 Wait until the script finished.<br />
 Sample video exists under sample video folder.<br />
+
 
 Caution:
 ==========
