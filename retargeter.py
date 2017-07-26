@@ -255,8 +255,8 @@ mobuMap = {'Reference' : 'BVH:reference',
 #three coordinators under pos reprsent x, y, z for position.
 #three coordinators under rotate represent rotation degree.
 camera = {
-"pos":[[ 50, 70, 300],[500, 70, -70],[50, 70, -500],[-400, 70, -70]],
-"rotate":[[0, 90, 0],[180,0,180],[180,-90,180],[0,0,0]]
+"pos":[[ 50, 70, 300],[500, 70, -70],[50, 70, -500],[-400, 70, -70],[-260,70,120],[300,70,120],[300,70,-400],[-150,70,-400]],
+"rotate":[[0, 90, 0],[180,0,180],[180,-90,180],[0,0,0],[0,45,0],[180,45,180],[180,-45,180],[0,-45,0]]
 }
 
 light = {
@@ -494,7 +494,7 @@ def main():
 
                 # plot
                 charToSave = plotAnim(newChar, oldAnimChar)
-                for i in range(0, 4):
+                for i in range(0, 8):
                     """
                     #set light
                     mylight = FBLight("mylight")
