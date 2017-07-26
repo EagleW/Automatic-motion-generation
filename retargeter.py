@@ -255,7 +255,7 @@ mobuMap = {'Reference' : 'BVH:reference',
 #three coordinators under pos reprsent x, y, z for position.
 #three coordinators under rotate represent rotation degree.
 camera = {
-"pos":[[ 50, 70, 600],[500, 70, 50],[50, 70, -400],[-500, 70, 50]],
+"pos":[[ 50, 70, 300],[500, 70, -70],[50, 70, -500],[-400, 70, -70]],
 "rotate":[[0, 90, 0],[180,0,180],[180,-90,180],[0,0,0]]
 }
 
