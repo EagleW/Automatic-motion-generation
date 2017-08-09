@@ -18,8 +18,8 @@ while(1):
     images = map(Image.open, all_pictures)
     widths, heights = zip(*(i.size for i in images))
 
-    total_width = sum(widths)
-    max_height = max(heights)
+    total_width = max(widths)*4
+    max_height = max(heights)*3
 
     new_im = Image.new('RGB', (total_width, max_height))
 
