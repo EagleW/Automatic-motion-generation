@@ -11,7 +11,7 @@ for fname in allList_back:
     bk = jpgRE.search(fname)
     if bk:
         all_pictures.append(fname)
-images = map(Image.open, all_pictures)
+images = list(map(Image.open, all_pictures))
 widths, heights = zip(*(i.size for i in images))
 
 total_width = sum(widths)
