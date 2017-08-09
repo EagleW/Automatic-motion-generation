@@ -14,7 +14,7 @@ while(1):
     for fname in allList_back:
         bk = jpgRE.search(fname)
         if bk:
-            all_pictures.append(fname)
+            all_pictures.append(dir_path+fname)
     images = map(Image.open, all_pictures)
     widths, heights = zip(*(i.size for i in images))
 
@@ -34,6 +34,6 @@ while(1):
             y_offset += im.size[1]
         else:
             x_offset += im.size[0]
-      print(im.format, im.size, im.mode)
+        #print(im.format, im.size, im.mode)
 
     new_im.save('toal.jpg')
