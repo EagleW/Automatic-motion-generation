@@ -9,7 +9,7 @@ while(1):
     allList_back = os.listdir(dir_path)
     all_pictures = []
     # Setting the regular expression to only look for .jpg extenstion
-    jpgRE = re.compile('^\w+.jpg$', re.I)
+    jpgRE = re.compile(dir_path+'^\w+.jpg$', re.I)
     # Removing any files that do not have an .fbx extenstion
     for fname in allList_back:
         bk = jpgRE.search(fname)
