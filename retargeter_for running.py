@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 FILE:     retargeter.py
-AUTHOR:   Qingyun Wang(dalewanghz@gail.com)
+AUTHOR:   Qingyun Wang(dalewanghz@gmail.com)
 DATE:     07.18.2017
 REVISION:
 REVISION DATE:
